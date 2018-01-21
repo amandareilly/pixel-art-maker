@@ -25,3 +25,24 @@ function makeGrid(event) {
 
 //event listener for grid size submit
 $("#submit_size").click(makeGrid);
+
+//adds css to index.html based on current value
+//of color colorPicker
+function setColor() {
+  const color = $("#colorPicker").val();
+  const colorDefinition = $("#colorDefinition");
+  const css = '.filled {background-color:' + color + '}';
+
+  //empty current color colorDefinition
+  colorDefinition.empty();
+
+  //add our colorDefinition
+  colorDefinition.append(css);
+
+}
+
+//set color on document.ready
+$(setColor);
+
+//event listener for color change
+$("#colorPicker").change(setColor);
