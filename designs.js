@@ -135,3 +135,12 @@ function enforceGridSize() {
 //event handler for size change
 $("#input_width").change(enforceGridSize);
 $("#input_height").change(enforceGridSize);
+
+//remove all classes from all td elements (reset canvas)
+function resetCanvas() {
+  const cells = $("td");
+  cells.removeClass();
+}
+
+//event listener for reset button cilck
+$("#resetButton").click(resetCanvas);
