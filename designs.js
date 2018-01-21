@@ -1,6 +1,8 @@
 // makes a grid of cells based on user input
 function makeGrid(event) {
-  event.preventDefault();
+  if(event.currentTarget!==undefined) {
+    event.preventDefault();
+  }
   const pixelCanvas = $("#pixel_canvas");
   const gridHeight = $("#input_height").val();
   const gridWidth = $("#input_width").val();
@@ -22,6 +24,9 @@ function makeGrid(event) {
   //add table to pixelCanvas
   pixelCanvas.append(table);
 }
+
+////set initial grid size on document.ready
+$(makeGrid);
 
 //event listener for grid size submit
 $("#submit_size").click(makeGrid);
