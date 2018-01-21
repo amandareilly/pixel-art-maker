@@ -35,9 +35,12 @@ $("#submit_size").click(makeGrid);
 //adds css to index.html based on current value
 //of color colorPicker
 function setColor() {
-  const color = $("#colorPicker").val();
+  const color1 = $("#colorPicker1").val();
+  const color2 = $("#colorPicker2").val();
+  const color3 = $("#colorPicker3").val();
+  const color4 = $("#colorPicker4").val();
   const colorDefinition = $("#colorDefinition");
-  const css = '.filled {background-color:' + color + '}';
+  const css = '.color1 {background-color:' + color1 + '; text:'+ color1 + '} .color2 {background-color:' + color2 + '; text:'+ color2 + '} .color3 {background-color:' + color3 + '; text:'+ color3 + '} .color4 {background-color:' + color4 + '; text:'+ color4 + '}';
 
   //empty current color colorDefinition
   colorDefinition.empty();
@@ -51,10 +54,22 @@ function setColor() {
 $(setColor);
 
 //event listener for color change
-$("#colorPicker").change(setColor);
+$("#colorPickers input").change(setColor);
 
-//toggles the "filled" class on a td element
+//toggles the color class on a td element
 function toggleFilled() {
+  //current working color
+  const workingColor = $("input[name='workingColorChoice']:checked").val();
+
+  //array of possible class names, with current class removed
+  let classArray = ["color1", "color2", "color3", "color4"];
+  const classIndex = classArray.indexOf(workingColor);
+  classArray.splice(classIndex,1);
+  $(this).removeClass(classArray);
+  $(this).toggleClass(workingColor);
+
+
+
   $(this).toggleClass("filled");
 }
 

@@ -42,3 +42,10 @@ input[type=number] {
 .error {
   color: red;
 }
+
+span.color1,
+span.color2,
+span.color3,
+span.color4 {
+  padding: 10px 25px;
+}

@@ -22,8 +22,37 @@
     <ul id="gridSizeErrorList">
     </ul>
 
-    <h2>Pick A Color</h2>
-    <input type="color" id="colorPicker">
+    <h2>Choose Your Available Colors</h2>
+    <div id="colorPickers">
+      <input type="color" id="colorPicker1" value="#000000">
+      <input type="color" id="colorPicker2" value = "#FF0000">
+      <input type="color" id="colorPicker3" value = "#00FF00">
+      <input type="color" id="colorPicker4" value = "#0000FF">
+    </div>
+
+    <h2>Current Working Color</h2>
+    <div id="workingColor">
+      <span class="color1">
+        <input type="radio" name="workingColorChoice" value="color1" checked>
+        <label for="color1"></label>
+      </span>
+
+      <span class="color2">
+        <input type="radio" name="workingColorChoice" value="color2">
+        <label for="color2"></label>
+      </span>
+
+      <span class="color3">
+        <input type="radio" name="workingColorChoice" value="color3">
+        <label for="color3"></label>
+      </span>
+
+      <span class="color4">
+        <input type="radio" name="workingColorChoice" value="color4">
+        <label for="color4"></label>
+      </span>
+
+    </div>
 
     <h2>Design Canvas</h2>
     <table id="pixel_canvas"></table>
