@@ -60,17 +60,15 @@ $("#colorPickers input").change(setColor);
 function toggleFilled() {
   //current working color
   const workingColor = $("input[name='workingColorChoice']:checked").val();
+  //does the element already have the working class?
+  const hasThisClass = $(this).hasClass(workingColor);
 
-  //array of possible class names, with current class removed
-  let classArray = ["color1", "color2", "color3", "color4"];
-  const classIndex = classArray.indexOf(workingColor);
-  classArray.splice(classIndex,1);
-  $(this).removeClass(classArray);
-  $(this).toggleClass(workingColor);
-
-
-
-  $(this).toggleClass("filled");
+  if(hasThisClass) {
+    $(this).removeClass();
+  } else {
+    $(this).removeClass();
+    $(this).toggleClass(workingColor);
+  }
 }
 
 //event listener for cell click
