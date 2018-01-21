@@ -6,6 +6,7 @@ function makeGrid(event) {
   const pixelCanvas = $("#pixel_canvas");
   const gridHeight = $("#input_height").val();
   const gridWidth = $("#input_width").val();
+
   let row = "";
   let table = "";
   //create a row of gridWidth cells
@@ -59,3 +60,17 @@ function toggleFilled() {
 
 //event listener for cell click
 $("#pixel_canvas").on("click", "td", toggleFilled);
+
+//gets width of body in order to set max gridWidth
+function bodyWidth() {
+  const maxWidth = $("body").width();
+  const maxGridWidth = Math.floor(maxWidth/20);
+  const gridWidth = $("#input_width");
+  gridWidth.attr("max", maxGridWidth);
+}
+
+//set width on document.ready
+$(bodyWidth);
+
+//set width on body change
+$(window).resize(bodyWidth);
