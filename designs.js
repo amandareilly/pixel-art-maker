@@ -46,3 +46,11 @@ $(setColor);
 
 //event listener for color change
 $("#colorPicker").change(setColor);
+
+//toggles the "filled" class on a td element
+function toggleFilled() {
+  $(this).toggleClass("filled");
+}
+
+//event listener for cell click
+$("#pixel_canvas").on("click", "td", toggleFilled);
