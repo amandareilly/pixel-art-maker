@@ -74,3 +74,49 @@ $(bodyWidth);
 
 //set width on body change
 $(window).resize(bodyWidth);
+
+//enforce gridWidth limits
+function enforceGridSize() {
+  //define elements to work with
+  const widthInput = $("#input_width");
+  const heightInput = $("#input_height");
+  const errorList = $("#gridSizeErrorList");
+
+  //user input
+  const inputWidth = widthInput.val();
+  const inputHeight = heightInput.val();
+
+  //limits
+  const min = 2;
+  const widthMax = widthInput.attr("max");
+
+  //output
+  let errors = "";
+
+  //check min height
+  if(inputHeight < min) {
+    errors += '<li class="error">Grid must be at least ' + min + ' squares tall.';
+    heightInput.val(min);
+  }
+
+  //check min width
+  if(inputWidth < min) {
+    errors += '<li class="error">Grid must be at least ' + min + ' squares wide.';
+    widthInput.val(min);
+  }
+
+  //check max width
+  if(inputWidth > widthMax) {
+    errors += '<li class="error">Grid is limited to width of browser.  Max grid width is ' + widthMax + ' at this window size.';
+    widthInput.val(widthMax);
+  }
+
+  //clear error list
+  errorList.empty();
+  errorList.append(errors);
+
+}
+
+//event handler for size change
+$("#input_width").change(enforceGridSize);
+$("#input_height").change(enforceGridSize);
